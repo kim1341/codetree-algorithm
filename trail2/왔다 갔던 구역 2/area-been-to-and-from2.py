@@ -11,26 +11,18 @@ for _ in range(n):
 arr =[0]*(MAX_A+5)
 cnt = 0
 a = OFFSET
-if dir[0] == 'L': 
-    b = OFFSET - x[0]
-else:
-    b = OFFSET + x[0]
-for i in range(n):
-    
-    if dir[i] == 'L':
-        for j in range(b,a):
-            arr[j] +=1
-    else:
-        for j in range(a,b):
-            arr[j] +=1
-    
 
-    if i != n-1:
-        a = b
-        if dir[i+1] == "L":
-            b = b - x[i+1]
-        else:
-            b = b + x[i+1]
+for i in range(n):
+    b = a
+    if dir[i] == 'L':
+        b -= x[i]
+    else:
+        b += x[i] 
+
+    for j in range(min(a,b),max(a,b)):
+        arr[j] += 1
+    
+    a = b
 
 for i in arr:
     if i >=2:
