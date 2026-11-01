@@ -5,7 +5,7 @@ cnt = 0
 result = 0
 
 for i in range(n):
-    if i>= 1 and (arr[i] <0 and arr[i-1]<0 ) or (arr[i] >0 and arr[i-1]>0 ):
+    if i>= 1 and arr[i] * arr[i-1]>0:
         cnt +=1
     else:
         cnt =1
