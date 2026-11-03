@@ -34,28 +34,20 @@ for i in range(M):
         timeB+=1
 
 total = max(timeA,timeB) -1
-leader = -1
-cnt = 1
 
-if arr_a[1]>arr_b[1]:
-    leader = 2
-elif arr_a[1]<arr_b[1]:
-    leader = 1
-elif arr_a[1] == arr_b[1]:
-    leader = 0
-
-
-for i in range(1,total+1):
-    if arr_a[i] == arr_b[i]:
-        now = 0
-    elif arr_a[i]>arr_b[i]:
-        now = 2
-    else: 
-        now = 1
-    
-    if leader !=now:
-        cnt+=1
-    leader = now
-        
+leader,cnt = 0,0
+for i in range(1,timeA):
+    if arr_a[i]>arr_b[i]:
+        if leader !=1:
+            cnt +=1
+        leader =1
+    elif arr_a[i]<arr_b[i]:
+        if leader !=2:
+            cnt +=1
+        leader =2
+    else:
+        if leader !=3:
+            cnt +=1
+        leader =3
 
 print(cnt)
