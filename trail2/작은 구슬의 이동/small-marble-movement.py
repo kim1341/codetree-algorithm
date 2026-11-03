@@ -17,9 +17,10 @@ move = mapper[d]
 time = 0
 x, y = r,c
 while time < t:
-    x,y = x +dxs[move], y + dys[move]
-    if not in_range(x,y):
-        x,y = x -dxs[move], y -dys[move]
+    nx,ny = x +dxs[move], y + dys[move]
+    if in_range(nx,ny):
+        x, y = nx, ny
+    else:
         move = 3- move
     time+=1
 print(x,y)
